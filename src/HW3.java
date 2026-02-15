@@ -37,6 +37,12 @@ public class HW3 {
             i = largest;
         }
     }
+    
+static void printArray(WordFreq[] a) {
+    for (int i = 0; i < a.length; i++) {
+        System.out.println(i + ": " + a[i]);
+    }
+}
 
 static void buildMaxHeap(WordFreq[] a) {
     int heapSize = a.length;
