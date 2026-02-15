@@ -7,6 +7,7 @@ class WordFreq {
         this.frequency = frequency;
     }
 
+    @Override
     public String toString() {
         return "(" + word + ", " + frequency + ")";
     }
@@ -37,37 +38,35 @@ public class HW3 {
             i = largest;
         }
     }
-    
-static void printArray(WordFreq[] a) {
-    for (int i = 0; i < a.length; i++) {
-        System.out.println(i + ": " + a[i]);
+
+    static void buildMaxHeap(WordFreq[] a) {
+        int heapSize = a.length;
+        for (int i = heapSize / 2 - 1; i >= 0; i--) {
+            maxHeapify(a, heapSize, i);
+        }
+    }
+
+    static void printArray(WordFreq[] a) {
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(i + ": " + a[i]);
+        }
+    }
+
+    public static void main(String[] args) {
+        WordFreq[] arr = {
+            new WordFreq("happy", 400),
+            new WordFreq("satisfied", 100),
+            new WordFreq("neutral", 300),
+            new WordFreq("would buy again", 200),
+            new WordFreq("terrible", 160),
+            new WordFreq("inconvenient", 900),
+            new WordFreq("difficult to use", 100),
+            new WordFreq("easy to use", 140),
+            new WordFreq("would recommend to friends", 800),
+            new WordFreq("visit the store", 700)
+        };
+
+        buildMaxHeap(arr);
+        printArray(arr);
     }
 }
-
-static void buildMaxHeap(WordFreq[] a) {
-    int heapSize = a.length;
-    for (int i = heapSize / 2 - 1; i >= 0; i--) {
-        maxHeapify(a, heapSize, i);
-    }
-}
-    
-public static void main(String[] args) {
-    WordFreq[] arr = {
-        new WordFreq("happy", 400),
-        new WordFreq("satisfied", 100),
-        new WordFreq("neutral", 300),
-        new WordFreq("would buy again", 200),
-        new WordFreq("terrible", 160),
-        new WordFreq("inconvenient", 900),
-        new WordFreq("difficult to use", 100),
-        new WordFreq("easy to use", 140),
-        new WordFreq("would recommend to friends", 800),
-        new WordFreq("visit the store", 700)
-    };
-
-    buildMaxHeap(arr);
-    printArray(arr);
-}
-
-}
-
