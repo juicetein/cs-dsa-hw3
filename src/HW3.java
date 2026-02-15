@@ -38,6 +38,13 @@ public class HW3 {
         }
     }
 
+static void buildMaxHeap(WordFreq[] a) {
+    int heapSize = a.length;
+    for (int i = heapSize / 2 - 1; i >= 0; i--) {
+        maxHeapify(a, heapSize, i);
+    }
+}
+    
     public static void main(String[] args) {
         WordFreq[] arr = {
             // ...
